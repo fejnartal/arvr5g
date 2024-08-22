@@ -75,7 +75,8 @@ func mensajesPredefinidos(inicioFinal string, prog Progreso, minRefresco time.Du
 
 		`Sin embargo, los contenidos presentes en la plataforman son absolutamente insuficientes y de ínfima calidad`,
 		`tanto para personas sin experiencia profesional previa en programación como para profesionales del sector.`,
-    }
+		`Pueden encontrar el código fuente que automatiza estos mensajes en https://github.com/fejnartal/arvr5g`,
+	}
 }
 
 func main() {
@@ -127,7 +128,7 @@ func main() {
 	}()
 
 	w.Bind("comprobarMensajesNuevos", func() string {
-	        fmt.Fprintf(os.Stdout, "Comprobando mensajes nuevos: %s", time.Now())
+		fmt.Fprintf(os.Stdout, "Comprobando mensajes nuevos: %s", time.Now())
 
 		var nuevoMensaje string
 		if len(mensajesPendientes) == 0 {
