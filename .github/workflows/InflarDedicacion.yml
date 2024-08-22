@@ -1,0 +1,32 @@
+on:
+  workflow_dispatch:
+
+jobs:
+  inflar-dedicacion:
+    runs-on: windows-latest
+    permissions:
+      contents: write
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Instalar Go
+      uses: actions/setup-go@v3
+      with:
+        go-version: 1.23.0
+
+    - name: Ejecutar
+      run: go run .
+      env:
+        CGO_ENABLED: 1
+        idcurso: ${{ secrets.idcurso }}
+        username: ${{ secrets.username }}
+        password: ${{ secrets.password }}
+
+    - name: Actualizar Progreso
+      if: always()
+      run: |
+        git config user.name 'Fernando Naranjo Talavera'
+        git config user.email '125358385+fejnartal@users.noreply.github.com'
+        git add integra5garvr.bin
+        git commit -m "Actualizar progreso"
+        git push
