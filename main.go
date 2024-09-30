@@ -37,7 +37,8 @@ document.addEventListener('DOMContentLoaded', function() {
             window.comprobarMensajesNuevos().then(function(mensaje) {
                 if(mensaje != "") {
                   message.value = mensaje;
-                  editing.submit()
+		  reload();
+                  //editing.submit()
                 } else {
                   message.value = "No hay mensajes"
                 }
