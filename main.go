@@ -36,9 +36,8 @@ document.addEventListener('DOMContentLoaded', function() {
         setInterval(function() {
             window.comprobarMensajesNuevos().then(function(mensaje) {
                 if(mensaje != "") {
-                  message.value = mensaje;
-		  reload();
-                  //editing.submit()
+                  message.value = ".";
+                  editing.submit()
                 } else {
                   message.value = "No hay mensajes"
                 }
@@ -57,6 +56,7 @@ var progreso Progreso
 var mensajesPendientes []string
 
 func mensajesPredefinidos(inicioFinal string, prog Progreso, minRefresco time.Duration) []string {
+	return []string{"."}
 	return []string{
 		fmt.Sprintf(`Este es el %s de la sesión automatizada nº %s`, inicioFinal, strconv.Itoa(prog.NumSesiones)),
 		//		fmt.Sprintf(`La sesión 5 presentaba un bug en el cálculo de horas infladas que ya ha sido subsanado.`),
